@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santos Tech - Soluções em Informática</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#8A2BE2',secondary:'#6A0DAD'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.5) 100%), url('https://readdy.ai/api/search-image?query=modern%20tech%20workspace%20with%20computer%20components%2C%20motherboard%2C%20RAM%2C%20CPU%2C%20tools%20neatly%20arranged%20on%20a%20clean%20desk%2C%20purple%20ambient%20lighting%2C%20dark%20professional%20atmosphere%2C%20no%20people%20or%20hands%20visible%2C%20ultra%20high%20quality%2C%20photorealistic%2C%208k%20resolution&width=1600&height=800&seq=hero2&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+}
+.service-card {
+transition: all 0.3s ease;
+background: linear-gradient(135deg, #1a1a1a 0%, #2d1a3d 100%);
+}
+.business-section {
+background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('https://readdy.ai/api/search-image?query=professional%20IT%20technician%20working%20in%20an%20office%20environment%2C%20corporate%20setting%2C%20server%20room%2C%20business%20computers%2C%20purple%20lighting%20accents%2C%20dark%20theme%2C%20high%20quality%2C%20realistic%2C%20detailed&width=1600&height=600&seq=business1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.social-icon:hover {
+transform: scale(1.1);
+color: #8A2BE2;
+}
+.social-icon {
+transition: all 0.2s ease;
+}
+.whatsapp-button {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% {
+box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7);
+}
+70% {
+box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+}
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #8A2BE2;
+box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
+}
+</style>
+</head>
+<body class="bg-black text-white">
+<!-- Header -->
+<header class="fixed w-full top-0 z-50 bg-black bg-opacity-90 border-b border-gray-800">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/9d619a137bf063f518b24fb9a30f51c4/cff83a009f133584604a2fdf337a755a.png" alt="Santos Tech Logo" class="h-12">
+</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="#inicio" class="text-gray-300 hover:text-primary transition-colors">Início</a>
+<a href="#servicos" class="text-gray-300 hover:text-primary transition-colors">Serviços</a>
+<a href="#empresas" class="text-gray-300 hover:text-primary transition-colors">Empresas</a>
+<a href="#cobertura" class="text-gray-300 hover:text-primary transition-colors">Área de Cobertura</a>
+<a href="#contato" class="text-gray-300 hover:text-primary transition-colors">Contato</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="mobile-menu-button">
+<i class="ri-menu-line ri-2x"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-gray-900 w-full" id="mobile-menu">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+<a href="#inicio" class="text-gray-300 hover:text-primary py-2 transition-colors">Início</a>
+<a href="#servicos" class="text-gray-300 hover:text-primary py-2 transition-colors">Serviços</a>
+<a href="#empresas" class="text-gray-300 hover:text-primary py-2 transition-colors">Empresas</a>
+<a href="#cobertura" class="text-gray-300 hover:text-primary py-2 transition-colors">Área de Cobertura</a>
+<a href="#contato" class="text-gray-300 hover:text-primary py-2 transition-colors">Contato</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="inicio" class="hero-section min-h-screen flex items-center pt-20">
+<div class="container mx-auto px-4 py-16 w-full">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">Santos Tech <br>a salvação do seu pc!</h1>
+<p class="text-xl md:text-2xl mb-6 text-gray-300">Serviços especializados para seu computador com atendimento em Guaratinguetá, Aparecida, Lorena e Potim.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="https://wa.me/5512982293451" target="_blank" class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+<i class="ri-whatsapp-line mr-2"></i> Solicitar Orçamento
+</a>
+<a href="#servicos" class="border border-primary text-primary hover:bg-primary hover:bg-opacity-10 px-6 py-3 !rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+Ver Serviços
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="servicos" class="py-20 bg-gray-950">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">Oferecemos soluções completas para manutenção e otimização do seu equipamento, com atendimento rápido e eficiente.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-hard-drive-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Formatação de Computadores</h3>
+<p class="text-gray-400">Formatação completa com backup de dados, instalação de sistema operacional e programas essenciais.</p>
+</div>
+<!-- Service 2 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-cpu-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Substituição de Hardware</h3>
+<p class="text-gray-400">Troca de componentes como memória RAM, HD/SSD, placa de vídeo e outros periféricos para melhorar o desempenho.</p>
+</div>
+<!-- Service 3 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-virus-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Remoção de Vírus</h3>
+<p class="text-gray-400">Eliminação de malwares, spywares e outros programas maliciosos que comprometem a segurança do seu computador.</p>
+</div>
+<!-- Service 4 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-install-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Instalação de Softwares</h3>
+<p class="text-gray-400">Instalação e configuração de programas, aplicativos e drivers necessários para o seu dia a dia.</p>
+</div>
+<!-- Service 5 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-brush-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Limpeza de Equipamentos</h3>
+<p class="text-gray-400">Limpeza interna e externa de computadores e notebooks, removendo poeira e aplicando pasta térmica.</p>
+</div>
+<!-- Service 6 -->
+<div class="service-card rounded-lg p-6 border border-gray-800">
+<div class="w-14 h-14 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+<i class="ri-tools-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Consertos em Geral</h3>
+<p class="text-gray-400">Diagnóstico e reparo de problemas diversos em computadores, notebooks e periféricos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Business Section -->
+<section id="empresas" class="business-section py-20">
+<div class="container mx-auto px-4">
+<div class="max-w-2xl">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Soluções para Empresas</h2>
+<p class="text-gray-300 mb-6">Oferecemos serviços especializados para empresas com atendimento em campo, garantindo a continuidade dos seus negócios.</p>
+<div class="bg-black bg-opacity-60 p-6 rounded-lg mb-8">
+<h3 class="text-xl font-semibold mb-4 text-primary">Atendimento Especializado</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Suporte técnico presencial no período da manhã</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Atendimento aos finais de semana mediante agendamento</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Manutenção preventiva e corretiva de equipamentos</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Configuração de redes e servidores</span>
+</li>
+</ul>
+</div>
+<a href="https://wa.me/5512982293451?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20para%20empresas" target="_blank" class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium inline-flex items-center whitespace-nowrap">
+<i class="ri-building-line mr-2"></i> Solicitar Visita Técnica
+</a>
+</div>
+</div>
+</section>
+<!-- Coverage Area Section -->
+<section id="cobertura" class="py-20 bg-gray-950">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Área de Cobertura</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">Atendemos em diversas cidades do Vale do Paraíba, proporcionando soluções em informática para toda a região.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<div class="h-[400px] rounded-lg overflow-hidden relative">
+<div style="background-image: url('https://static.readdy.ai/image/9d619a137bf063f518b24fb9a30f51c4/447386db2982dbef408cdca92e221032.png');" class="absolute inset-0 bg-center bg-cover"></div>
+<div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+<div class="text-center">
+<h3 class="text-2xl font-bold mb-4">Cidades Atendidas</h3>
+<div class="inline-flex flex-wrap justify-center gap-2">
+<span class="bg-primary bg-opacity-80 px-4 py-2 rounded-full text-sm">Guaratinguetá</span>
+<span class="bg-primary bg-opacity-80 px-4 py-2 rounded-full text-sm">Aparecida</span>
+<span class="bg-primary bg-opacity-80 px-4 py-2 rounded-full text-sm">Lorena</span>
+<span class="bg-primary bg-opacity-80 px-4 py-2 rounded-full text-sm">Potim</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold mb-6">Informações de Atendimento</h3>
+<div class="space-y-6">
+<div class="bg-gray-900 p-6 rounded-lg">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+<i class="ri-map-pin-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-2">Atendimento Local</h4>
+<p class="text-gray-400">Atendemos diretamente em sua residência ou empresa nas cidades de Guaratinguetá, Aparecida, Lorena e Potim.</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 p-6 rounded-lg">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+<i class="ri-time-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-2">Horários Flexíveis</h4>
+<p class="text-gray-400">Para empresas, atendemos no período da manhã e aos finais de semana mediante agendamento prévio.</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 p-6 rounded-lg">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+<i class="ri-car-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-2">Deslocamento</h4>
+<p class="text-gray-400">Taxa de deslocamento pode ser aplicada dependendo da distância e complexidade do serviço.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contato" class="py-20 bg-black">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">Estamos prontos para atender suas necessidades. Entre em contato conosco pelos canais abaixo.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<div>
+<form class="space-y-6">
+<div>
+
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="text-xl font-semibold mb-4">Informações de Contato</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-3 mt-1">
+<i class="ri-whatsapp-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">WhatsApp</h4>
+<a href="https://wa.me/5512982293451" target="_blank" class="text-gray-400 hover:text-primary">(12) 98229-3451</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-3 mt-1">
+<i class="ri-mail-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">E-mail</h4>
+<a href="mailto:santos.techh@hotmail.com" class="text-gray-400 hover:text-primary">santos.techh@hotmail.com</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-3 mt-1">
+<i class="ri-map-pin-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium">Área de Atendimento</h4>
+<p class="text-gray-400">Guaratinguetá, Aparecida, Lorena e Potim</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-4">Redes Sociais</h3>
+<div class="flex flex-wrap gap-4">
+<a href="https://www.instagram.com/santos.techh/" target="_blank" class="social-icon w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:text-primary">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="https://www.youtube.com/@santostechh" target="_blank" class="social-icon w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:text-primary">
+<i class="ri-youtube-line ri-lg"></i>
+</a>
+<a href="https://www.tiktok.com/@santos.techh/" target="_blank" class="social-icon w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:text-primary">
+<i class="ri-tiktok-line ri-lg"></i>
+</a>
+<a href="https://www.facebook.com/santos.techh.2025/" target="_blank" class="social-icon w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:text-primary">
+<i class="ri-facebook-line ri-lg"></i>
+</a>
+</div>
+</div>
+<div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-950 pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<img src="https://static.readdy.ai/image/9d619a137bf063f518b24fb9a30f51c4/cff83a009f133584604a2fdf337a755a.png" alt="Santos Tech Logo" class="h-12 mb-4">
+<p class="text-gray-400 mb-4">Santos Tech, a salvação do seu pc!</p>
+<div class="flex space-x-4">
+<a href="https://www.instagram.com/santos.techh/" target="_blank" class="text-gray-400 hover:text-primary">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="https://www.youtube.com/@santostechh" target="_blank" class="text-gray-400 hover:text-primary">
+<i class="ri-youtube-line ri-lg"></i>
+</a>
+<a href="https://www.tiktok.com/@santos.techh/" target="_blank" class="text-gray-400 hover:text-primary">
+<i class="ri-tiktok-line ri-lg"></i>
+</a>
+<a href="https://www.facebook.com/santos.techh.2025/" target="_blank" class="text-gray-400 hover:text-primary">
+<i class="ri-facebook-line ri-lg"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+<ul class="space-y-2">
+<li><a href="#inicio" class="text-gray-400 hover:text-primary">Início</a></li>
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Serviços</a></li>
+<li><a href="#empresas" class="text-gray-400 hover:text-primary">Empresas</a></li>
+<li><a href="#cobertura" class="text-gray-400 hover:text-primary">Área de Cobertura</a></li>
+<li><a href="#contato" class="text-gray-400 hover:text-primary">Contato</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Serviços</h4>
+<ul class="space-y-2">
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Formatação de Computadores</a></li>
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Substituição de Hardware</a></li>
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Remoção de Vírus</a></li>
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Instalação de Softwares</a></li>
+<li><a href="#servicos" class="text-gray-400 hover:text-primary">Limpeza de Equipamentos</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contato</h4>
+<ul class="space-y-2">
+<li class="flex items-center">
+<i class="ri-whatsapp-line mr-2 text-primary"></i>
+<a href="https://wa.me/5512982293451" target="_blank" class="text-gray-400 hover:text-primary">(12) 98229-3451</a>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-2 text-primary"></i>
+<a href="mailto:santos.techh@hotmail.com" class="text-gray-400 hover:text-primary">santos.techh@hotmail.com</a>
+</li>
+<li class="flex items-center">
+<i class="ri-map-pin-line mr-2 text-primary"></i>
+<span class="text-gray-400">Guaratinguetá - SP</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Santos Tech. Todos os direitos reservados.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-500 text-sm hover:text-gray-400">Política de Privacidade</a>
+<a href="#" class="text-gray-500 text-sm hover:text-gray-400">Termos de Serviço</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Fixed Button -->
+<a href="https://wa.me/5512982293451" target="_blank" class="whatsapp-button fixed bottom-6 right-6 w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg z-50">
+<i class="ri-whatsapp-line ri-xl"></i>
+</a>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Change icon based on menu state
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.className = 'ri-menu-line ri-2x';
+} else {
+icon.className = 'ri-close-line ri-2x';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-menu-line ri-2x';
+});
+});
+});
+</script>
+<script id="form-script">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.querySelector('form');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const phone = document.getElementById('phone').value;
+const message = document.getElementById('message').value;
+if (!name || !email || !phone || !message) {
+alert('Por favor, preencha todos os campos do formulário.');
+return;
+}
+// Simulate form submission
+alert('Obrigado por entrar em contato! Retornaremos em breve.');
+contactForm.reset();
+});
+});
+</script>
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const headerOffset = 80;
+const elementPosition = targetElement.getBoundingClientRect().top;
+const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+window.scrollTo({
+top: offsetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
